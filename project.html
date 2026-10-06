@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project case study | HM Portfolio">
+
+    <title id="pageTitle">Project — HM Portfolio</title>
+
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div id="loader">
+    <div class="loader-logo">HM</div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <a href="index.html" class="logo">HM</a>
+
+    <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- This page is a generic template: it reads ?id=<project-id> from the
+     URL, loads data/projects.json, and renders the matching project's
+     case study using the exact same layout as project1/2/3.html.
+     New projects created in admin.html without a dedicated static page
+     link here automatically. -->
+<section class="project-page" id="projectPage">
+    <p>Loading project…</p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <h3>Hussein Mohamed</h3>
+    <p>Data Analyst | Excel | Power BI</p>
+    <p class="copyright">© 2026 Hussein Mohamed. All Rights Reserved.</p>
+</footer>
+
+<a href="#" id="backToTop" aria-label="Back to top">↑</a>
+
+<audio id="bgMusic" loop preload="none">
+    <source src="assets/music/music.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn" aria-label="Toggle background music">🎵</button>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/particles-config.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/music.js"></script>
+<script src="assets/js/project-templates.js"></script>
+
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/consent.js"></script>
+<script src="assets/js/exit-feedback.js"></script>
+
+<script>
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const page = document.getElementById("projectPage");
+    const T = window.HM_ProjectTemplates;
+
+    if (!id || !T) {
+        page.innerHTML = "<p>Project not found. <a href=\"index.html#portfolio\" class=\"btn\">⬅ Back to Portfolio</a></p>";
+        return;
+    }
+
+    fetch("data/projects.json")
+        .then((res) => res.json())
+        .then((projects) => {
+            const project = projects.find((p) => p.id === id && T.isPublic(p));
+            if (!project) {
+                page.innerHTML = "<p>Project not found. <a href=\"index.html#portfolio\" class=\"btn\">⬅ Back to Portfolio</a></p>";
+                return;
+            }
+
+            document.title = project.name + " — Case Study | HM Portfolio";
+            document.getElementById("pageTitle").textContent = document.title;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute("content", (project.description || project.name) + " — by Hussein Mohamed.");
+
+            page.innerHTML = T.renderCaseStudy(project);
+
+            // The video (if any) was just added to the DOM after analytics.js
+            // already ran its one-time video scan — re-run it so this video
+            // gets start/progress/complete tracking too.
+            if (window.HM_trackVideos) window.HM_trackVideos();
+        })
+        .catch(() => {
+            page.innerHTML = "<p>Project could not be loaded. <a href=\"index.html#portfolio\" class=\"btn\">⬅ Back to Portfolio</a></p>";
+        });
+})();
+</script>
+
+</body>
+</html>

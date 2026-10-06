@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | HM Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-banner">
+    <strong>How this works:</strong> This dashboard runs entirely in your browser. There is no backend, no database
+    and no login — edits are saved as a local draft in this browser only (via <code>localStorage</code>), never
+    to the live site automatically. To publish changes, edit a project/skill/tool/setting, then use the
+    <strong>Download</strong> button for that section and replace the matching file in your GitHub repo
+    (<code>data/projects.json</code>, <code>data/skills.json</code>, <code>data/tools.json</code>, or
+    <code>assets/js/config.js</code>), then commit &amp; push. This page is not linked from the public site and is
+    excluded from search engines, but it is not password-protected — anyone with this URL can open and edit a
+    local draft here, though they cannot change your live site without commit access to your repository.
+</div>
+
+<div class="admin-header">
+    <h1>HM Portfolio — Admin Dashboard</h1>
+    <a href="index.html" target="_blank">View live site ↗</a>
+</div>
+
+<div class="admin-layout">
+    <nav class="admin-nav">
+        <button type="button" class="nav-btn active" data-panel="dashboard">Dashboard</button>
+        <button type="button" class="nav-btn" data-panel="projects">Projects</button>
+        <button type="button" class="nav-btn" data-panel="skills">Skills</button>
+        <button type="button" class="nav-btn" data-panel="tools">Tools</button>
+        <button type="button" class="nav-btn" data-panel="media">Media</button>
+        <button type="button" class="nav-btn" data-panel="statistics">Statistics</button>
+        <button type="button" class="nav-btn" data-panel="analytics">Analytics</button>
+        <button type="button" class="nav-btn" data-panel="settings">Site Settings</button>
+    </nav>
+
+    <main class="admin-main">
+
+        <section class="admin-panel active" id="panel-dashboard">
+            <h2>Dashboard</h2>
+            <div class="admin-grid-cards" id="dashboardCards"></div>
+            <div class="admin-note">
+                Use the left menu to manage Projects, Skills, Tools, Media, and Site Settings. Every section works
+                the same way: edit here → Download the updated JSON/JS file → commit it to your GitHub repo →
+                GitHub Pages redeploys automatically.
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-projects">
+            <h2>Projects</h2>
+            <div id="projectsDraftBanner"></div>
+            <div class="admin-toolbar">
+                <input type="text" id="projectSearch" class="admin-input" placeholder="Search projects…">
+                <div id="projectStatusChips"></div>
+                <div id="projectCategoryChips"></div>
+                <button type="button" class="chip" id="projectFeaturedChip">★ Featured only</button>
+                <span style="flex:1"></span>
+                <button type="button" class="admin-btn" id="addProjectBtn">+ Add Project</button>
+                <button type="button" class="admin-btn secondary" id="exportProjectsBtn">⬇ Download projects.json</button>
+                <button type="button" class="admin-btn secondary" id="resetProjectsBtn">Discard local draft</button>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Order</th><th>Name</th><th>Category</th><th>Status</th><th>Featured</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="projectsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-skills">
+            <h2>Skills</h2>
+            <div id="skillsDraftBanner"></div>
+            <div class="admin-toolbar">
+                <input type="text" id="skillSearch" class="admin-input" placeholder="Search skills…">
+                <span style="flex:1"></span>
+                <button type="button" class="admin-btn" id="addSkillBtn">+ Add Skill</button>
+                <button type="button" class="admin-btn secondary" id="exportSkillsBtn">⬇ Download skills.json</button>
+                <button type="button" class="admin-btn secondary" id="resetSkillsBtn">Discard local draft</button>
+            </div>
+            <div class="admin-note">
+                Python is intentionally excluded from this list per your instructions and will not be re-added by
+                this dashboard.
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Order</th><th>Icon</th><th>Name</th><th>Description</th><th>Visible</th><th>Actions</th></tr></thead>
+                    <tbody id="skillsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-tools">
+            <h2>Tools</h2>
+            <div id="toolsDraftBanner"></div>
+            <div class="admin-note">
+                "Tools" here powers the <strong>My Services</strong> cards on the homepage — the tools/services
+                actually represented in your portfolio, not a generic tech-stack list.
+            </div>
+            <div class="admin-toolbar">
+                <input type="text" id="toolSearch" class="admin-input" placeholder="Search tools…">
+                <span style="flex:1"></span>
+                <button type="button" class="admin-btn" id="addToolBtn">+ Add Tool</button>
+                <button type="button" class="admin-btn secondary" id="exportToolsBtn">⬇ Download tools.json</button>
+                <button type="button" class="admin-btn secondary" id="resetToolsBtn">Discard local draft</button>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Order</th><th>Icon</th><th>Name</th><th>Description</th><th>Visible</th><th>Actions</th></tr></thead>
+                    <tbody id="toolsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-media">
+            <h2>Media</h2>
+            <div class="admin-note">
+                GitHub Pages can't scan your file system from the browser, so there's no separate media database.
+                This list is a live view of every image and video already referenced by a project. To add new
+                media, upload the file to your repo (e.g. <code>assets/images/</code> or <code>assets/videos/</code>)
+                and set its path in that project's Image/Video field in the Projects tab — it will appear here
+                automatically.
+            </div>
+            <h3 style="color:var(--gold);font-size:15px;">Images</h3>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Preview</th><th>Path</th><th>Alt Text</th><th>Project</th><th></th></tr></thead>
+                    <tbody id="mediaImagesBody"></tbody>
+                </table>
+            </div>
+            <h3 style="color:var(--gold);font-size:15px;margin-top:24px;">Videos</h3>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Path</th><th>Video ID</th><th>Name</th><th>Project</th><th></th></tr></thead>
+                    <tbody id="mediaVideosBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-statistics">
+            <h2>Statistics</h2>
+            <div class="admin-note">
+                These are computed live from your current project data — never invented numbers. For true visitor
+                analytics (visits, sessions, traffic sources) see the Analytics tab and your GA4 dashboard.
+            </div>
+            <div class="admin-grid-cards" id="statsComputedCards"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-analytics">
+            <h2>Analytics</h2>
+            <div id="gaStatusBox" class="admin-note"></div>
+            <div class="admin-note">
+                Full visitor analytics (users, sessions, traffic sources, devices, top pages) live inside Google
+                Analytics 4 once configured — a static GitHub Pages site cannot safely query the GA4 Reporting API
+                from the browser, because that requires a private service-account credential that must never be
+                exposed in frontend code. View your real numbers directly:
+                <a href="https://analytics.google.com/" target="_blank" rel="noopener" style="color:var(--gold);">analytics.google.com ↗</a>.
+                A secure backend/API proxy would be the correct way to pull GA4 numbers into this dashboard in the
+                future — this admin panel is structured so that could be added later without changing anything else.
+            </div>
+            <h3 style="color:var(--gold);font-size:15px;">Tracked events (this site)</h3>
+            <div class="admin-note" style="line-height:2;">
+                page_view · section_view · scroll_depth (25/50/75/90/100) · project_click · portfolio_filter ·
+                hire_me_click · contact_click · email_click · linkedin_click · github_click · fiverr_click ·
+                cv_download · generate_lead · video_start · video_progress (10/25/50/75/90) · video_complete ·
+                site_rating
+            </div>
+            <h3 style="color:var(--gold);font-size:15px;">Recent local test events</h3>
+            <div class="admin-note">
+                This browser only — not global site analytics, and it never shows other visitors' activity. Useful
+                for confirming an event fires correctly while testing.
+            </div>
+            <div class="admin-toolbar">
+                <button type="button" class="admin-btn secondary" id="clearLocalLogBtn">Clear local log</button>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr><th>Time</th><th>Event</th><th>Details</th></tr></thead>
+                    <tbody id="localEventLogBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-panel" id="panel-settings">
+            <h2>Site Settings</h2>
+            <div class="admin-note">
+                These fields mirror <code>assets/js/config.js</code> — loaded live from that file. Edit below, then
+                download the updated file and replace <code>assets/js/config.js</code> in your repo.
+            </div>
+            <form id="settingsForm">
+                <div class="admin-field">
+                    <label>GA4 Measurement ID</label>
+                    <input type="text" class="admin-input" id="cfgGaId" placeholder="G-XXXXXXXXXX">
+                </div>
+                <div class="admin-field-row">
+                    <div class="admin-field">
+                        <label><input type="checkbox" id="cfgAvailable"> Available for freelance projects</label>
+                    </div>
+                </div>
+                <div class="admin-field-row">
+                    <div class="admin-field">
+                        <label>Availability text (available)</label>
+                        <input type="text" class="admin-input" id="cfgAvailText">
+                    </div>
+                    <div class="admin-field">
+                        <label>Availability text (unavailable)</label>
+                        <input type="text" class="admin-input" id="cfgUnavailText">
+                    </div>
+                </div>
+                <h3 style="color:var(--gold);font-size:15px;">Public Stat Counters</h3>
+                <div id="statsEditorRows"></div>
+                <button type="button" class="admin-btn secondary small" id="addStatRowBtn">+ Add counter</button>
+
+                <h3 style="color:var(--gold);font-size:15px;margin-top:20px;">Social / Contact Links</h3>
+                <div class="admin-field-row">
+                    <div class="admin-field"><label>LinkedIn URL</label><input type="text" class="admin-input" id="cfgLinkedin"></div>
+                    <div class="admin-field"><label>GitHub URL <span style="color:var(--warn)">(currently missing)</span></label><input type="text" class="admin-input" id="cfgGithub" placeholder="https://github.com/yourusername"></div>
+                </div>
+                <div class="admin-field-row">
+                    <div class="admin-field"><label>Fiverr URL</label><input type="text" class="admin-input" id="cfgFiverr"></div>
+                    <div class="admin-field"><label>Contact Email</label><input type="text" class="admin-input" id="cfgEmail"></div>
+                </div>
+
+                <h3 style="color:var(--gold);font-size:15px;margin-top:20px;">Hero Rotating Titles</h3>
+                <div class="admin-field">
+                    <label>One per line</label>
+                    <textarea class="admin-textarea" id="cfgTypedStrings" rows="4"></textarea>
+                </div>
+
+                <div class="admin-modal-actions" style="justify-content:flex-start;">
+                    <button type="button" class="admin-btn" id="downloadConfigBtn">⬇ Download updated config.js</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+</div>
+
+<!-- Add/Edit Project Modal -->
+<div class="admin-modal-overlay" id="projectModalOverlay">
+    <div class="admin-modal">
+        <h3 id="projectModalTitle">Add Project</h3>
+        <form id="projectForm">
+            <input type="hidden" id="pf_id">
+            <div class="admin-field-row">
+                <div class="admin-field"><label>Project Name *</label><input type="text" class="admin-input" id="pf_name" required></div>
+                <div class="admin-field"><label>Category</label><input type="text" class="admin-input" id="pf_category" placeholder="excel, powerbi, …"></div>
+            </div>
+            <div class="admin-field"><label>Description</label><textarea class="admin-textarea" id="pf_description" rows="2"></textarea></div>
+            <div class="admin-field-row">
+                <div class="admin-field"><label>Tools Used (comma-separated, shown as tags)</label><input type="text" class="admin-input" id="pf_tags"></div>
+                <div class="admin-field"><label>Tools Used — full names (for case study, comma-separated)</label><input type="text" class="admin-input" id="pf_toolsFull"></div>
+            </div>
+            <div class="admin-field-row">
+                <div class="admin-field"><label>Project Image (path)</label><input type="text" class="admin-input" id="pf_image" placeholder="assets/images/yourfile.jpg"></div>
+                <div class="admin-field"><label>Project URL (optional — leave blank to auto-use project.html)</label><input type="text" class="admin-input" id="pf_url" placeholder="e.g. project4.html or #contact"></div>
+            </div>
+            <div id="pf_imagePreviewWrap"></div>
+            <div class="admin-field-row">
+                <div class="admin-field"><label>Project Video (path, optional)</label><input type="text" class="admin-input" id="pf_video"></div>
+                <div class="admin-field"><label>Video ID (for analytics)</label><input type="text" class="admin-input" id="pf_videoId"></div>
+            </div>
+
+            <h4 style="color:var(--gold);">Case Study</h4>
+            <div class="admin-field"><label>Problem</label><textarea class="admin-textarea" id="pf_problem" rows="2"></textarea></div>
+            <div class="admin-field"><label>Objective</label><textarea class="admin-textarea" id="pf_objective" rows="2"></textarea></div>
+            <div class="admin-field"><label>Approach (one step per line)</label><textarea class="admin-textarea" id="pf_approach" rows="3"></textarea></div>
+            <div class="admin-field"><label>What I Built</label><textarea class="admin-textarea" id="pf_whatIBuilt" rows="2"></textarea></div>
+            <div class="admin-field"><label>Key Insights</label><textarea class="admin-textarea" id="pf_keyInsights" rows="2"></textarea></div>
+            <div class="admin-field"><label>Result / Outcome</label><textarea class="admin-textarea" id="pf_outcome" rows="2"></textarea></div>
+
+            <div class="admin-field-row">
+                <div class="admin-field">
+                    <label>Status</label>
+                    <select class="admin-select" id="pf_status">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                        <option value="hidden">Hidden</option>
+                    </select>
+                </div>
+                <div class="admin-field"><label>Display Order</label><input type="number" class="admin-input" id="pf_order"></div>
+                <div class="admin-field"><label><input type="checkbox" id="pf_featured"> Featured</label></div>
+            </div>
+
+            <div class="admin-modal-actions">
+                <button type="button" class="admin-btn secondary" id="previewProjectBtn">Preview</button>
+                <button type="button" class="admin-btn secondary" id="cancelProjectBtn">Cancel</button>
+                <button type="submit" class="admin-btn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="admin-modal-overlay" id="previewModalOverlay">
+    <div class="admin-modal" style="max-width:600px;">
+        <h3>Preview</h3>
+        <div id="previewContent"></div>
+        <div class="admin-modal-actions">
+            <button type="button" class="admin-btn secondary" id="closePreviewBtn">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Skill/Tool Modal (shared) -->
+<div class="admin-modal-overlay" id="itemModalOverlay">
+    <div class="admin-modal">
+        <h3 id="itemModalTitle">Add Skill</h3>
+        <form id="itemForm">
+            <input type="hidden" id="if_id">
+            <input type="hidden" id="if_kind">
+            <div class="admin-field-row">
+                <div class="admin-field"><label>Name *</label><input type="text" class="admin-input" id="if_name" required></div>
+                <div class="admin-field">
+                    <label>Icon (Font Awesome class) <i class="icon-preview" id="if_iconPreview"></i></label>
+                    <input type="text" class="admin-input" id="if_icon" placeholder="fa-solid fa-star">
+                </div>
+            </div>
+            <div class="admin-field"><label>Description</label><textarea class="admin-textarea" id="if_description" rows="2"></textarea></div>
+            <div class="admin-field-row">
+                <div class="admin-field" id="if_categoryWrap"><label>Category</label><input type="text" class="admin-input" id="if_category"></div>
+                <div class="admin-field"><label>Display Order</label><input type="number" class="admin-input" id="if_order"></div>
+                <div class="admin-field"><label><input type="checkbox" id="if_visible" checked> Visible</label></div>
+            </div>
+            <div class="admin-modal-actions">
+                <button type="button" class="admin-btn secondary" id="cancelItemBtn">Cancel</button>
+                <button type="submit" class="admin-btn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/project-templates.js"></script>
+<script src="assets/js/admin.js"></script>
+
+</body>
+</html>
