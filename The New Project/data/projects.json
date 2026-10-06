@@ -1,0 +1,304 @@
+[
+  {
+    "id": "airport-operations-dashboard",
+    "name": "Airport Operations Dashboard",
+    "description": "An interactive airport operations dashboard designed to monitor flight activity, passenger volume, on-time performance, delays, cancellations, airlines, and routes in one executive view.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/Airport Operations Dashboard.jpg",
+    "imageAlt": "Airport Operations Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Airport Operations Dashboard.mp4",
+      "id": "airport-operations-dashboard",
+      "name": "Airport Operations Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive airport operations dashboard designed to monitor flight activity, passenger volume, on-time performance, delays, cancellations, airlines, and routes in one executive view.",
+    "problem": "Airport operational data contains multiple performance indicators across flights, passengers, delays, airlines, and routes, making it difficult to monitor overall performance from a single view.",
+    "objective": "Build an interactive dashboard that provides a clear overview of airport operations and allows users to analyze flight and performance metrics by month and operational status.",
+    "approach": [
+      "Structured the operational data for dashboard analysis.",
+      "Created KPI metrics for flights, passengers, on-time performance, delays, cancellations, and revenue.",
+      "Built interactive filters for monthly and operational views.",
+      "Created visual analyses for flight trends, daily activity, routes, airlines, and flight types.",
+      "Designed the dashboard as an executive-level monitoring interface."
+    ],
+    "whatIBuilt": "An interactive Airport Operations Dashboard featuring six KPI cards, flight trends, daily flight activity, geographical destination analysis, on-time performance, flight types, top airlines, and top routes.",
+    "keyInsights": "The dashboard shows 15,000 total flights and more than 1.4 million passengers.\nOn-time performance is displayed at 49%, while the cancellation rate is 3%.\nDaily flight activity is highest around the beginning of the week and lower on Saturday.\nThe dashboard also highlights the highest-performing airlines and busiest routes.",
+    "outcome": "Created a centralized interactive view that makes key airport performance indicators easier to monitor, compare, and analyze.",
+    "featured": true,
+    "status": "published",
+    "order": 1
+  },
+  {
+    "id": "port-operations-dashboard",
+    "name": "Port Operations Dashboard",
+    "description": "An interactive port operations dashboard for monitoring vessel activity, container throughput, revenue, profit, turnaround time, waiting time, crane utilization, cargo types, and operational delays.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/Port Operations Dashboard.jpg",
+    "imageAlt": "Port Operations Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Port Operations Dashboard.mp4",
+      "id": "Port Operations Dashboard",
+      "name": "Port Operations Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive port operations dashboard for monitoring vessel activity, container throughput, revenue, profit, turnaround time, waiting time, crane utilization, cargo types, and operational delays.",
+    "problem": "Port operations generate a large number of operational and financial indicators, including vessel activity, TEUs, waiting times, turnaround times, and delay reasons. These metrics can be difficult to monitor together.",
+    "objective": "Develop an interactive dashboard that provides an executive overview of port performance while allowing users to analyze operations by month, cargo type, delay reason, and year.",
+    "approach": [
+      "Structured the port operations data for analysis.",
+      "Created KPIs covering vessels, TEUs, revenue, profit, waiting time, turnaround time, on-time departure, and crane utilization.",
+      "Added interactive filters for months, cargo types, delay reasons, and years.",
+      "Built visual analyses for vessel activity, revenue versus profit, cargo throughput, terminal turnaround time, berth waiting time, and vessel delays.",
+      "Organized the dashboard into an executive operational overview."
+    ],
+    "whatIBuilt": "A Port Operations Dashboard combining financial, operational, and efficiency metrics into a single interactive interface.",
+    "keyInsights": "The dashboard displays 16,951 total vessels and more than 31.9 million TEUs.\nTotal revenue is approximately $1.73 billion, with total profit of approximately $831.5 million.\nCrane utilization is displayed at 72.96%, while on-time departure is 66.1.\nThe dashboard identifies cargo categories with the highest TEU volumes and highlights the main causes of vessel delays.",
+    "outcome": "Created a centralized operational dashboard that enables faster monitoring of port performance, resource utilization, cargo activity, and delay patterns.",
+    "featured": true,
+    "status": "published",
+    "order": 2
+  },
+  {
+    "id": "e-commerce-performance-dashboard",
+    "name": "E-Commerce Performance Dashboard",
+    "description": "An interactive e-commerce performance dashboard designed to analyze revenue, cost, profit, quantity, regional sales, product performance, monthly trends, and category performance.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/E-Commerce Performance Dashboard.jpg",
+    "imageAlt": "E-Commerce Performance Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/E-Commerce Performance Dashboard.mp4",
+      "id": "e-commerce-performance-dashboard",
+      "name": "E-Commerce Performance Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive e-commerce performance dashboard designed to analyze revenue, cost, profit, quantity, regional sales, product performance, monthly trends, and category performance.",
+    "problem": "E-commerce sales data contains multiple dimensions such as products, categories, regions, and monthly performance, making it difficult to evaluate overall profitability and identify the strongest areas of the business.",
+    "objective": "Create an interactive dashboard that provides a complete view of sales performance, profitability, product contribution, regional performance, and category results.",
+    "approach": [
+      "Structured the sales data for analysis.",
+      "Created KPI metrics for revenue, cost, profit, and quantity.",
+      "Added interactive filters for months, regions, revenue, and profit.",
+      "Analyzed monthly revenue and profit trends.",
+      "Compared product performance using the Top 10 products analysis.",
+      "Analyzed revenue and profit across product categories and regions."
+    ],
+    "whatIBuilt": "An interactive E-Commerce Performance Dashboard featuring four KPI cards, monthly revenue and profit trends, regional analysis, Top 10 products, and category-level revenue and profit comparisons.",
+    "keyInsights": "Total revenue is approximately $1.18 million, with total profit of approximately $498.5 thousand.\nThe dashboard records 18,802 units sold.\nHome & Kitchen generates the highest displayed revenue among the categories, followed by Electronics.\nThe Top 10 analysis highlights the strongest products by combined revenue and profit contribution.\nMonthly analysis shows relatively consistent revenue performance throughout the year with noticeable fluctuations in September and October.",
+    "outcome": "Created a centralized sales performance dashboard that makes revenue, profitability, product, category, and regional performance easier to monitor and compare.",
+    "featured": false,
+    "status": "published",
+    "order": 3
+  },
+  {
+    "id": "supermarket-sales-dashboard",
+    "name": "Supermarket Sales Dashboard",
+    "description": "An interactive supermarket sales dashboard designed to monitor revenue, profit, orders, units sold, average order value, profit margin, customer segments, branches, products, categories, and payment methods.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/Supermarket Sales Dashboard.jpg",
+    "imageAlt": "Supermarket Sales Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Supermarket Sales Dashboard.mp4",
+      "id": "supermarket-sales-dashboard",
+      "name": "Supermarket Sales Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive supermarket sales dashboard designed to monitor revenue, profit, orders, units sold, average order value, profit margin, customer segments, branches, products, categories, and payment methods.",
+    "problem": "Supermarket sales data contains multiple dimensions including branches, products, customer types, payment methods, and product categories, making it difficult to evaluate sales and profitability from a single view.",
+    "objective": "Build an interactive sales dashboard that provides a complete overview of supermarket performance while allowing users to analyze revenue, profit, products, branches, customers, and payment methods.",
+    "approach": [
+      "Structured the sales data for analysis.",
+      "Created KPI metrics for revenue, profit, orders, units sold, average order value, and profit margin.",
+      "Added interactive filters for months, product categories, customer types, payment methods, and branches.",
+      "Analyzed monthly revenue and profit trends.",
+      "Compared branch performance and category contribution.",
+      "Analyzed customer segments, payment methods, and top-performing products."
+    ],
+    "whatIBuilt": "An interactive Supermarket Sales Dashboard featuring seven KPI cards, monthly revenue and profit analysis, branch performance, customer segmentation, Top 5 products, category performance, and payment-method analysis.",
+    "keyInsights": "Total revenue is approximately $1.46 million, with total profit of approximately $442.2 thousand.\nThe dashboard records 1,125,750 total orders and 8,048 units sold.\nElectronics is identified as the top-selling category.\nCairo shows the highest displayed branch performance, followed by Alexandria and Giza.\nMember customers represent the larger customer segment compared with regular customers.\nCredit Card is the highest displayed payment method by transaction value.",
+    "outcome": "Created a centralized retail analytics dashboard that makes sales, profitability, customer, branch, product, and payment performance easier to monitor and compare.",
+    "featured": false,
+    "status": "published",
+    "order": 7
+  },
+  {
+    "id": "hospital-operations-dashboard",
+    "name": "Hospital Operations Dashboard",
+    "description": "An interactive hospital operations dashboard designed to monitor patient volume, admissions, discharges, waiting times, bed occupancy, patient satisfaction, departments, and patient types.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/Hospital Operations Dashboard.jpg",
+    "imageAlt": "Hospital Operations Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Hospital Operations Dashboard.mp4",
+      "id": "hospital-operations-dashboard",
+      "name": "Hospital Operations Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive hospital operations dashboard designed to monitor patient volume, admissions, discharges, waiting times, bed occupancy, patient satisfaction, departments, and patient types.",
+    "problem": "Hospital operations involve multiple patient and service metrics that need to be monitored simultaneously, including admissions, discharges, waiting times, patient types, department activity, and satisfaction.",
+    "objective": "Develop an interactive hospital dashboard that provides a clear operational overview and allows users to analyze patient activity and service performance across departments and months.",
+    "approach": [
+      "Structured the hospital operations data for analysis.",
+      "Created KPIs for patients, admissions, discharges, waiting time, bed occupancy, satisfaction, and length of stay.",
+      "Added filters for months, departments, and patient types.",
+      "Analyzed monthly admissions and patient volume by type.",
+      "Compared patient volumes and waiting times across departments.",
+      "Tracked patient satisfaction throughout the year."
+    ],
+    "whatIBuilt": "An interactive Hospital Operations Dashboard featuring seven KPI cards, monthly admissions, patient volume by type, patient distribution, department-level patient volume, departmental waiting times, and patient satisfaction trends.",
+    "keyInsights": "The dashboard displays 1,200 total patients, admissions, and discharges.\nAverage waiting time is displayed at 34.46, with a bed occupancy rate of 52%.\nPatient satisfaction is displayed at 4.1, while average length of stay is 2.4.\nEmergency has the highest displayed patient volume among departments.\nEmergency also records the highest displayed average waiting time at 53.0.\nOutpatients represent the largest patient type in the dashboard.",
+    "outcome": "Created a centralized hospital analytics dashboard that makes patient activity, departmental workload, waiting times, and satisfaction trends easier to monitor.",
+    "featured": true,
+    "status": "published",
+    "order": 5
+  },
+  {
+    "id": "payroll-workforce-dashboard",
+    "name": "Payroll & Workforce Dashboard",
+    "description": "An interactive payroll and workforce dashboard designed to monitor payroll costs, employee distribution, salaries, overtime, bonuses, compensation components, and departmental payroll performance.",
+    "category": "Excel, Dashboard, Data Analysis",
+    "tags": [
+      "Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Excel",
+      "PivotTables",
+      "Pivot Charts",
+      "Slicers"
+    ],
+    "image": "assets/images/Payroll & Workforce Dashboard.jpg",
+    "imageAlt": "Payroll & Workforce Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Payroll & Workforce Dashboard.mp4",
+      "id": "payroll-workforce-dashboard",
+      "name": "Payroll & Workforce Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive payroll and workforce dashboard designed to monitor payroll costs, employee distribution, salaries, overtime, bonuses, compensation components, and departmental payroll performance.",
+    "problem": "Payroll data contains multiple financial and workforce dimensions such as salaries, overtime, bonuses, departments, employee roles, and employment types, making it difficult to monitor workforce costs from a single view.",
+    "objective": "Create an interactive payroll dashboard that provides an overview of workforce size, payroll expenses, salary levels, overtime costs, bonuses, and departmental compensation.",
+    "approach": [
+      "Structured the payroll and workforce data for analysis.",
+      "Created KPI metrics for gross payroll, net payroll, employees, average base salary, overtime cost, and bonuses.",
+      "Added interactive filters for payroll type, month, department, employment type, and employee role.",
+      "Analyzed monthly payroll trends and departmental workforce distribution.",
+      "Compared payroll costs across departments.",
+      "Analyzed overtime and compensation components over time"
+    ],
+    "whatIBuilt": "An interactive Payroll & Workforce Dashboard featuring six KPI cards, monthly payroll trends, workforce distribution, salary versus net payroll analysis, departmental payroll, overtime analysis, and compensation breakdown.",
+    "keyInsights": "Total gross payroll is approximately $5.92 million, while total net payroll is approximately $5.57 million.\nThe dataset contains 400 employees with an average base salary of approximately $12,150.\nTotal overtime cost is approximately $471.7 thousand, with bonuses of approximately $225 thousand.\nOperations has the largest displayed workforce, followed by IT and Sales.\nOperations also has the highest displayed departmental payroll.\nThe dashboard highlights monthly changes in payroll, overtime, and compensation components.",
+    "outcome": "Created a centralized workforce analytics dashboard that makes payroll costs, employee distribution, departmental expenses, overtime, and compensation easier to monitor and analyze.",
+    "featured": true,
+    "status": "published",
+    "order": 4
+  },
+  {
+    "id": "power-bi-sales-profitability-dashboard",
+    "name": "Power BI Sales & Profitability Dashboard",
+    "description": "An interactive Power BI dashboard designed to analyze sales, costs, profitability, quantities, and profit performance across products, locations, customers, and employees.",
+    "category": "Power BI",
+    "tags": [
+      "Power BI"
+    ],
+    "toolsUsedFull": [
+      "Microsoft Power BI"
+    ],
+    "image": "assets/images/Power BI Sales & Profitability Dashboard.jpg",
+    "imageAlt": "Power BI Sales & Profitability Dashboard",
+    "hoverNote": "",
+    "video": {
+      "src": "assets/videos/Power BI Sales & Profitability Dashboard.mp4",
+      "id": "power-bi-sales-profitability-dashboard",
+      "name": "Power BI Sales & Profitability Dashboard Walkthrough"
+    },
+    "url": "",
+    "demoBadge": true,
+    "intro": "An interactive Power BI dashboard designed to analyze sales, costs, profitability, quantities, and profit performance across products, locations, customers, and employees.",
+    "problem": "Sales and profitability data was spread across multiple business dimensions, making it difficult to quickly identify performance trends, profitable products, and geographic differences.",
+    "objective": "",
+    "approach": [
+      "Organized sales, cost, quantity, and profitability metrics into an interactive Power BI report with KPI cards, trend analysis, product-level profitability, geographic performance, and interactive filtering."
+    ],
+    "whatIBuilt": "Interactive KPI cards for Total Sales, Cost, Total Profit, and Profitability. Profit trend analysis by year. Profit comparison by stock item. Sales, quantity, cost, and profit breakdown by state. Interactive filters for employee, customer, city, buying group, buying package, and state.",
+    "keyInsights": "Sales and profitability can be compared across multiple years. Product profitability varies significantly between stock items. State-level performance shows differences in sales, quantity, cost, and profit. Interactive filters allow the dashboard to be explored across multiple business dimensions.",
+    "outcome": "Created an interactive business intelligence dashboard that brings sales, cost, and profitability metrics into one visual report, making performance analysis faster and easier.",
+    "featured": true,
+    "status": "published",
+    "order": 6
+  }
+]
